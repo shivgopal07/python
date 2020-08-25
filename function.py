@@ -1,13 +1,8 @@
-def is_leap(year):
-    leap = False
-    if year%400==0:
-        return True
-    if year%100==0:
-        return False
-    if year%4==0:
-        return True
-    
-    return leap
-
-year = int(input())
-print(is_leap(year)
+m=int(input("enter the length: "))
+n=int(input("enter the breath: "))
+def rect(m,n):
+    for i in range (m):
+        for j in range (n):
+            print("*",end="")
+        print()
+rect(m,n)
