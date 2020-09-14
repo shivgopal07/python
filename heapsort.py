@@ -1,33 +1,20 @@
-# Python implementation of the 
-# Sorting visualiser: Heap Sort 
-
-# Imports 
 import pygame 
 import random 
 import time 
 pygame.font.init() 
 startTime = time.time() 
 
-# Total window 
 screen = pygame.display.set_mode( 
 	(900, 650) 
 ) 
-
-# Title and Icon 
+ 
 pygame.display.set_caption( 
 	"SORTING VISUALISER"
 ) 
 
-# Uncomment below lines for setting 
-# up the icon for the visuliser 
-# img = pygame.image.load('sorticon.png') 
-# pygame.display.set_icon(img) 
-
-# Boolean variable to run 
-# the program in while loop 
+ 
 run = True
 
-# Window size and some initials 
 width = 900
 length = 600
 array = [0]*151
@@ -38,26 +25,21 @@ clr = [(0, 204, 102), (255, 0, 0),
 fnt = pygame.font.SysFont("comicsans", 30) 
 fnt1 = pygame.font.SysFont("comicsans", 20) 
 
-# Function to generate new Array 
 def generate_arr(): 
-	for i in range(1, 151): 
-		arr_clr[i] = clr[0] 
-		array[i] = random.randrange(1, 100) 
+for i in range(1, 151): 
+arr_clr[i] = clr[0] 
+array[i] = random.randrange(1, 100) 
 
-
-# Initially generate a array 
+ 
 generate_arr() 
 
-# Function to refill the 
-# updates on the window 
 def refill(): 
 	screen.fill((255, 255, 255)) 
 	draw() 
 	pygame.display.update() 
 	pygame.time.delay(10) 
 
-
-# Sorting Algorithm: Heap Sort 
+ 
 def heapSort(array): 
 	n = len(array) 
 	for i in range(n//2-1, -1, -1): 
@@ -90,7 +72,7 @@ def heapify(array, root, size):
 		heapify(array, largest, size) 
 		refill() 
 
-# Function to Draw the array values 
+
 def draw(): 
 
 	# Text should be rendered 
@@ -114,7 +96,7 @@ def draw():
 	pygame.draw.line(screen, (0, 0, 0), (0, 95), 
 					(900, 95), 6) 
 
-	# Drawing the array values as lines 
+	 
 	for i in range(1, 151): 
 		pygame.draw.line(screen, arr_clr[i], 
 						(boundry_arr * i-3, 100), 
@@ -123,13 +105,12 @@ def draw():
 						element_width) 
 
 
-# Program should be run 
-# continuously to keep the window open 
+ 
 while run: 
 	# background 
 	screen.fill((255, 255, 255)) 
 
-	# Event handler stores all event 
+	
 	for event in pygame.event.get(): 
 
 		# If we click Close button in window 
